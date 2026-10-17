@@ -284,13 +284,11 @@ def osm_apron():
 
 WARM, NEUTRAL, COOL = (1.0, 0.86, 0.70), (1.0, 0.93, 0.84), (1.0, 0.97, 0.92)   # 3000, 4000, 5000 K
 SUN_OFF, SUN_ON = 1.50, 1.60            # sun-angle-rad (from the zenith): off with the sun 4 deg up, full 2 deg down
-# The HDR pipeline has no photometric units, and its range from night to day is compressed: a unit of its radiance is
-# about 635 cd/m2 by day (from its sun: a flat spectrum of 1 W/(m2 sr nm), 73,000 cd/m2, comes out of fgdata's
-# Shaders/HDR/atmos_spectral.glsl at a luminance of 115) and about 1 cd/m2 at night (from its night ambient). The
-# lights keep their cd and the lenses their cd/m2, converted by UNITS: units per cd as the sun goes from 6 deg up to
-# 6 deg down, geometric between.
+# The HDR pipeline has no photometric units: its light is its sun's spectral irradiance put through the matrix of
+# fgdata's Shaders/HDR/atmos_spectral.glsl, which gives a flat spectrum of 1 W/(m2 sr nm), 73,000 cd/m2, a luminance of
+# 115. A unit of its radiance is so 635 cd/m2, and of a light's intensity 635 cd: the lights' cd and the lenses' cd/m2
+# are divided by HDR_CD.
 HDR_CD = 635.0
-UNITS = [(math.radians(90 - el), HDR_CD ** -min(1.0, max(0.0, (el + 6) / 12))) for el in range(6, -7, -1)]
 LENS_NITS = {'highbay': (1500, NEUTRAL), 'flood': (2500, COOL), 'downlight': (800, WARM),   # cd/m2: far below a
              'washer': (300, NEUTRAL), 'office': (200, WARM)}                                # real LED's, or they bloom
 # each lens's beam, as its light's (half-intensity angle, deg; None: a diffuser, as bright from every side): the lens
@@ -368,7 +366,7 @@ def write_xml(lights):
                 '<emissive-factor type="vec3d"> 0 0 0 </emissive-factor>',
                 '<base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>', '<metallic-factor type="float"> 0 </metallic-factor>',
                 '<roughness-factor type="float"> 0.3 </roughness-factor>'])
-    # the lenses' glow, cd/m2 faded in with the sun, dimmed, and converted (UNITS)
+    # the lenses' glow, cd/m2 faded in with the sun and dimmed
     for k, (nits, rgb) in LENS_NITS.items():
         x.extend(['  <animation>', '    <type>pbr</type>', '    <object-name>lens-%s</object-name>' % k, '    <emissive-factor>'])
         for c, v in zip(('red', 'green', 'blue'), rgb):
@@ -407,14 +405,15 @@ def write_xml(lights):
 
 
 def level_xml(cd, ind):
-    """A light's intensity (cd) or a lens's luminance (cd/m2), in the pipeline's units: faded in as the sun sets,
-    dimmed with /scenery/finnhems/dim and converted (UNITS)."""
+    """A light's intensity (cd) or a lens's luminance (cd/m2), in the pipeline's units (HDR_CD): faded in as the sun
+    sets and dimmed with /scenery/finnhems/dim."""
     def table(rows):
         return ([ind + '    <table>', ind + '      <property>/sim/time/sun-angle-rad</property>'] +
                 [ind + '      <entry><ind> %.4f </ind><dep> %.6g </dep></entry>' % r for r in rows] + [ind + '    </table>'])
-    return ([ind + '<expression>', ind + '  <product>'] + table([(SUN_OFF, 0), (SUN_ON, 1)]) + table(UNITS) +
+    return ([ind + '<expression>', ind + '  <product>'] + table([(SUN_OFF, 0), (SUN_ON, 1)]) +
             [ind + '    <difference>', ind + '      <value> 1 </value>', ind + '      <property>/scenery/finnhems/dim</property>',
-             ind + '    </difference>', ind + '    <value> %g </value>' % cd, ind + '  </product>', ind + '</expression>'])
+             ind + '    </difference>', ind + '    <value> %.6g </value>' % (cd / HDR_CD), ind + '  </product>',
+             ind + '</expression>'])
 
 
 def write_stg():
