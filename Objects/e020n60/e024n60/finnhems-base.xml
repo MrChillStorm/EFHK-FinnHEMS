@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The FinnHEMS base at EFHK: written by tools/build.py (see there for sources). HDR lights; door:
+     /scenery/finnhems/door-closed, lights: /scenery/finnhems/dim (0-1), /scenery/finnhems/lights-off -->
+
+<PropertyList>
+
+  <path>finnhems-base.ac</path>
+
+  <effect>
+    <inherits-from>Effects/model-default</inherits-from>
+    <parameters>
+      <pbr-metallic type="float"> 0.0 </pbr-metallic>
+      <pbr-roughness type="float"> 0.75 </pbr-roughness>
+    </parameters>
+    <object-name>facade</object-name>
+    <object-name>roof</object-name>
+    <object-name>parts</object-name>
+    <object-name>interior</object-name>
+    <object-name>lens-off</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-default</inherits-from>
+    <parameters>
+      <pbr-roughness type="float"> 0.95 </pbr-roughness>
+    </parameters>
+    <object-name>apron</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-default</inherits-from>
+    <parameters>
+      <pbr-roughness type="float"> 0.6 </pbr-roughness>
+    </parameters>
+    <object-name>door</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-default</inherits-from>
+    <parameters>
+      <alpha-cutoff type="float"> 0.5 </alpha-cutoff>
+      <pbr-roughness type="float"> 0.5 </pbr-roughness>
+    </parameters>
+    <object-name>letters</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-pbr</inherits-from>
+    <parameters>
+      <emissive-factor type="vec3d"> 1500 1395 1260 </emissive-factor>
+      <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
+      <metallic-factor type="float"> 0 </metallic-factor>
+      <roughness-factor type="float"> 0.3 </roughness-factor>
+    </parameters>
+    <object-name>lens-highbay</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-pbr</inherits-from>
+    <parameters>
+      <emissive-factor type="vec3d"> 2500 2425 2300 </emissive-factor>
+      <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
+      <metallic-factor type="float"> 0 </metallic-factor>
+      <roughness-factor type="float"> 0.3 </roughness-factor>
+    </parameters>
+    <object-name>lens-flood</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-pbr</inherits-from>
+    <parameters>
+      <emissive-factor type="vec3d"> 800 688 560 </emissive-factor>
+      <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
+      <metallic-factor type="float"> 0 </metallic-factor>
+      <roughness-factor type="float"> 0.3 </roughness-factor>
+    </parameters>
+    <object-name>lens-downlight</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-pbr</inherits-from>
+    <parameters>
+      <emissive-factor type="vec3d"> 300 279 252 </emissive-factor>
+      <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
+      <metallic-factor type="float"> 0 </metallic-factor>
+      <roughness-factor type="float"> 0.3 </roughness-factor>
+    </parameters>
+    <object-name>lens-washer</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-pbr</inherits-from>
+    <parameters>
+      <emissive-factor type="vec3d"> 200 172 140 </emissive-factor>
+      <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
+      <metallic-factor type="float"> 0 </metallic-factor>
+      <roughness-factor type="float"> 0.3 </roughness-factor>
+    </parameters>
+    <object-name>lens-office</object-name>
+  </effect>
+
+  <animation>
+    <type>scale</type>
+    <object-name>door</object-name>
+    <property>/scenery/finnhems/door-closed</property>
+    <x-factor> 0 </x-factor>
+    <x-offset> 1 </x-offset>
+    <y-factor> 0 </y-factor>
+    <y-offset> 1 </y-offset>
+    <z-factor> 0.88 </z-factor>
+    <z-offset> 0.12 </z-offset>
+    <center>
+      <x-m> -17.985 </x-m>
+      <y-m> -15.341 </y-m>
+      <z-m> 7.000 </z-m>
+    </center>
+  </animation>
+
+  <light>
+    <name>highbay-0</name>
+    <type>spot</type>
+    <position>
+      <x-m> -14.234 </x-m>
+      <y-m> -10.877 </y-m>
+      <z-m> 6.700 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -14.234 </lookat-x-m>
+      <lookat-y-m> -10.877 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 1500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 2 </spot-exponent>
+    <spot-cutoff> 80 </spot-cutoff>
+    <range-m> 20 </range-m>
+  </light>
+
+  <light>
+    <name>highbay-1</name>
+    <type>spot</type>
+    <position>
+      <x-m> -16.351 </x-m>
+      <y-m> -4.731 </y-m>
+      <z-m> 6.700 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -16.351 </lookat-x-m>
+      <lookat-y-m> -4.731 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 1500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 2 </spot-exponent>
+    <spot-cutoff> 80 </spot-cutoff>
+    <range-m> 20 </range-m>
+  </light>
+
+  <light>
+    <name>highbay-2</name>
+    <type>spot</type>
+    <position>
+      <x-m> -18.141 </x-m>
+      <y-m> 0.469 </y-m>
+      <z-m> 6.700 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -18.141 </lookat-x-m>
+      <lookat-y-m> 0.469 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 1500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 2 </spot-exponent>
+    <spot-cutoff> 80 </spot-cutoff>
+    <range-m> 20 </range-m>
+  </light>
+
+  <light>
+    <name>highbay-3</name>
+    <type>spot</type>
+    <position>
+      <x-m> -9.732 </x-m>
+      <y-m> -2.452 </y-m>
+      <z-m> 6.700 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -9.732 </lookat-x-m>
+      <lookat-y-m> -2.452 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 1500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 2 </spot-exponent>
+    <spot-cutoff> 80 </spot-cutoff>
+    <range-m> 20 </range-m>
+  </light>
+
+  <light>
+    <name>highbay-4</name>
+    <type>spot</type>
+    <position>
+      <x-m> -11.523 </x-m>
+      <y-m> 2.748 </y-m>
+      <z-m> 6.700 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -11.523 </lookat-x-m>
+      <lookat-y-m> 2.748 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 1500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 2 </spot-exponent>
+    <spot-cutoff> 80 </spot-cutoff>
+    <range-m> 20 </range-m>
+  </light>
+
+  <light>
+    <name>highbay-5</name>
+    <type>spot</type>
+    <position>
+      <x-m> -5.818 </x-m>
+      <y-m> 1.540 </y-m>
+      <z-m> 6.700 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -5.818 </lookat-x-m>
+      <lookat-y-m> 1.540 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 1500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 2 </spot-exponent>
+    <spot-cutoff> 80 </spot-cutoff>
+    <range-m> 20 </range-m>
+  </light>
+
+  <light>
+    <name>flood-0</name>
+    <type>spot</type>
+    <position>
+      <x-m> -15.018 </x-m>
+      <y-m> -14.743 </y-m>
+      <z-m> 6.950 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -9.288 </lookat-x-m>
+      <lookat-y-m> -31.384 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.97 </g>
+      <b> 0.92 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 2500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 5.57 </spot-exponent>
+    <spot-cutoff> 57.8 </spot-cutoff>
+    <range-m> 60 </range-m>
+  </light>
+
+  <light>
+    <name>flood-1</name>
+    <type>spot</type>
+    <position>
+      <x-m> -4.618 </x-m>
+      <y-m> -11.161 </y-m>
+      <z-m> 6.950 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> 1.112 </lookat-x-m>
+      <lookat-y-m> -27.803 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.97 </g>
+      <b> 0.92 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 2500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 5.57 </spot-exponent>
+    <spot-cutoff> 57.8 </spot-cutoff>
+    <range-m> 60 </range-m>
+  </light>
+
+  <light>
+    <name>flood-2</name>
+    <type>spot</type>
+    <position>
+      <x-m> 13.347 </x-m>
+      <y-m> -4.976 </y-m>
+      <z-m> 6.950 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> 19.077 </lookat-x-m>
+      <lookat-y-m> -21.617 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.97 </g>
+      <b> 0.92 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 2500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 5.57 </spot-exponent>
+    <spot-cutoff> 57.8 </spot-cutoff>
+    <range-m> 60 </range-m>
+  </light>
+
+  <light>
+    <name>flood-3</name>
+    <type>spot</type>
+    <position>
+      <x-m> 20.911 </x-m>
+      <y-m> -2.371 </y-m>
+      <z-m> 6.950 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> 26.641 </lookat-x-m>
+      <lookat-y-m> -19.012 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.97 </g>
+      <b> 0.92 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 2500 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 5.57 </spot-exponent>
+    <spot-cutoff> 57.8 </spot-cutoff>
+    <range-m> 60 </range-m>
+  </light>
+
+  <light>
+    <name>downlight-0</name>
+    <type>spot</type>
+    <position>
+      <x-m> 3.272 </x-m>
+      <y-m> -9.502 </y-m>
+      <z-m> 2.450 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> 3.272 </lookat-x-m>
+      <lookat-y-m> -9.502 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 250 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 3.47 </spot-exponent>
+    <spot-cutoff> 68.6 </spot-cutoff>
+    <range-m> 8 </range-m>
+  </light>
+
+  <light>
+    <name>downlight-1</name>
+    <type>spot</type>
+    <position>
+      <x-m> 5.636 </x-m>
+      <y-m> -8.689 </y-m>
+      <z-m> 2.450 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> 5.636 </lookat-x-m>
+      <lookat-y-m> -8.689 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 250 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 3.47 </spot-exponent>
+    <spot-cutoff> 68.6 </spot-cutoff>
+    <range-m> 8 </range-m>
+  </light>
+
+  <light>
+    <name>downlight-2</name>
+    <type>spot</type>
+    <position>
+      <x-m> 8.000 </x-m>
+      <y-m> -7.875 </y-m>
+      <z-m> 2.450 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> 8.000 </lookat-x-m>
+      <lookat-y-m> -7.875 </lookat-y-m>
+      <lookat-z-m> 0.000 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 250 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 3.47 </spot-exponent>
+    <spot-cutoff> 68.6 </spot-cutoff>
+    <range-m> 8 </range-m>
+  </light>
+
+  <light>
+    <name>washer-0</name>
+    <type>spot</type>
+    <position>
+      <x-m> -7.438 </x-m>
+      <y-m> -12.185 </y-m>
+      <z-m> 4.050 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -7.585 </lookat-x-m>
+      <lookat-y-m> -11.760 </lookat-y-m>
+      <lookat-z-m> 5.500 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 80 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 4.82 </spot-exponent>
+    <spot-cutoff> 61.1 </spot-cutoff>
+    <range-m> 4 </range-m>
+  </light>
+
+  <light>
+    <name>washer-1</name>
+    <type>spot</type>
+    <position>
+      <x-m> -5.642 </x-m>
+      <y-m> -11.567 </y-m>
+      <z-m> 4.050 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -5.788 </lookat-x-m>
+      <lookat-y-m> -11.141 </lookat-y-m>
+      <lookat-z-m> 5.500 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 80 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 4.82 </spot-exponent>
+    <spot-cutoff> 61.1 </spot-cutoff>
+    <range-m> 4 </range-m>
+  </light>
+
+  <light>
+    <name>washer-2</name>
+    <type>spot</type>
+    <position>
+      <x-m> -3.845 </x-m>
+      <y-m> -10.948 </y-m>
+      <z-m> 4.050 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -3.992 </lookat-x-m>
+      <lookat-y-m> -10.523 </lookat-y-m>
+      <lookat-z-m> 5.500 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 80 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 4.82 </spot-exponent>
+    <spot-cutoff> 61.1 </spot-cutoff>
+    <range-m> 4 </range-m>
+  </light>
+
+  <light>
+    <name>washer-3</name>
+    <type>spot</type>
+    <position>
+      <x-m> -2.049 </x-m>
+      <y-m> -10.330 </y-m>
+      <z-m> 4.050 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -2.195 </lookat-x-m>
+      <lookat-y-m> -9.904 </lookat-y-m>
+      <lookat-z-m> 5.500 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 80 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 4.82 </spot-exponent>
+    <spot-cutoff> 61.1 </spot-cutoff>
+    <range-m> 4 </range-m>
+  </light>
+
+  <light>
+    <name>washer-4</name>
+    <type>spot</type>
+    <position>
+      <x-m> -0.252 </x-m>
+      <y-m> -9.711 </y-m>
+      <z-m> 4.050 </z-m>
+    </position>
+    <direction>
+      <lookat-x-m> -0.399 </lookat-x-m>
+      <lookat-y-m> -9.286 </lookat-y-m>
+      <lookat-z-m> 5.500 </lookat-z-m>
+    </direction>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.93 </g>
+      <b> 0.84 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 80 </scale>
+      <min> 0 </min>
+    </intensity>
+    <spot-exponent> 4.82 </spot-exponent>
+    <spot-cutoff> 61.1 </spot-cutoff>
+    <range-m> 4 </range-m>
+  </light>
+
+  <light>
+    <name>office-0</name>
+    <type>point</type>
+    <position>
+      <x-m> -7.681 </x-m>
+      <y-m> -8.409 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-1</name>
+    <type>point</type>
+    <position>
+      <x-m> -4.088 </x-m>
+      <y-m> -7.172 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-2</name>
+    <type>point</type>
+    <position>
+      <x-m> -0.495 </x-m>
+      <y-m> -5.934 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-3</name>
+    <type>point</type>
+    <position>
+      <x-m> 3.098 </x-m>
+      <y-m> -4.697 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-4</name>
+    <type>point</type>
+    <position>
+      <x-m> 6.691 </x-m>
+      <y-m> -3.460 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-5</name>
+    <type>point</type>
+    <position>
+      <x-m> 10.284 </x-m>
+      <y-m> -2.223 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-6</name>
+    <type>point</type>
+    <position>
+      <x-m> 13.877 </x-m>
+      <y-m> -0.986 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-7</name>
+    <type>point</type>
+    <position>
+      <x-m> 17.470 </x-m>
+      <y-m> 0.251 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <light>
+    <name>office-8</name>
+    <type>point</type>
+    <position>
+      <x-m> 21.063 </x-m>
+      <y-m> 1.489 </y-m>
+      <z-m> 2.700 </z-m>
+    </position>
+    <color>
+      <r> 1.00 </r>
+      <g> 0.86 </g>
+      <b> 0.70 </b>
+    </color>
+    <intensity>
+      <expression>
+        <product>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+          </table>
+          <difference>
+            <value> 1 </value>
+            <property>/scenery/finnhems/dim</property>
+          </difference>
+        </product>
+      </expression>
+      <scale> 60 </scale>
+      <min> 0 </min>
+    </intensity>
+    <range-m> 6 </range-m>
+  </light>
+
+  <animation>
+    <type>select</type>
+    <object-name>highbay-0</object-name>
+    <object-name>highbay-1</object-name>
+    <object-name>highbay-2</object-name>
+    <object-name>highbay-3</object-name>
+    <object-name>highbay-4</object-name>
+    <object-name>highbay-5</object-name>
+    <object-name>flood-0</object-name>
+    <object-name>flood-1</object-name>
+    <object-name>flood-2</object-name>
+    <object-name>flood-3</object-name>
+    <object-name>downlight-0</object-name>
+    <object-name>downlight-1</object-name>
+    <object-name>downlight-2</object-name>
+    <object-name>washer-0</object-name>
+    <object-name>washer-1</object-name>
+    <object-name>washer-2</object-name>
+    <object-name>washer-3</object-name>
+    <object-name>washer-4</object-name>
+    <object-name>office-0</object-name>
+    <object-name>office-1</object-name>
+    <object-name>office-2</object-name>
+    <object-name>office-3</object-name>
+    <object-name>office-4</object-name>
+    <object-name>office-5</object-name>
+    <object-name>office-6</object-name>
+    <object-name>office-7</object-name>
+    <object-name>office-8</object-name>
+    <condition>
+      <not><property>/scenery/finnhems/lights-off</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lens-highbay</object-name>
+    <object-name>lens-flood</object-name>
+    <object-name>lens-downlight</object-name>
+    <object-name>lens-washer</object-name>
+    <object-name>lens-office</object-name>
+    <condition>
+      <and>
+        <not><property>/scenery/finnhems/lights-off</property></not>
+        <greater-than><property>/sim/time/sun-angle-rad</property><value> 1.550 </value></greater-than>
+        <less-than><property>/scenery/finnhems/dim</property><value> 0.99 </value></less-than>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>
