@@ -1,0 +1,67 @@
+$FG_GLSL_VERSION
+
+// fgdata's Shaders/HDR/model_pbr.frag with the glow sent along the lens's beam (finnhems-lens.eff): the emission times
+// cos^(e-1) of the angle between the lens's normal (its beam's axis) and the eye within the cutoff, beyond it 3 %.
+
+in VS_OUT {
+    float flogz;
+    vec2 texcoord;
+    vec3 vertex_normal;
+    vec3 view_vector;
+} fs_in;
+
+uniform sampler2D base_color_tex;
+uniform sampler2D normal_tex;
+uniform sampler2D orm_tex;
+uniform sampler2D emissive_tex;
+
+uniform vec4 base_color_factor;
+uniform float metallic_factor;
+uniform float roughness_factor;
+uniform vec3 emissive_factor;
+uniform float alpha_cutoff;
+
+uniform float lens_exponent;
+uniform float lens_cos_cutoff;
+
+const float STRAY = 0.03;
+
+// gbuffer_pack.glsl
+void gbuffer_pack_pbr_opaque(vec3 normal,
+                             vec3 base_color,
+                             float metallic,
+                             float roughness,
+                             float occlusion,
+                             vec3 emissive);
+// color.glsl
+vec3 eotf_inverse_sRGB(vec3 srgb);
+// normalmap.glsl
+vec3 perturb_normal(vec3 N, vec3 V, vec2 texcoord, sampler2D tex);
+// logarithmic_depth.glsl
+float logdepth_encode(float z);
+
+void main()
+{
+    vec4 base_color_texel = texture(base_color_tex, fs_in.texcoord);
+    if (base_color_texel.a * base_color_factor.a < alpha_cutoff)
+        discard;
+    vec3 base_color = eotf_inverse_sRGB(base_color_texel.rgb) * base_color_factor.rgb;
+
+    vec3 orm = texture(orm_tex, fs_in.texcoord).rgb;
+    float occlusion = orm.r;
+    float roughness = orm.g * roughness_factor;
+    float metallic = orm.b * metallic_factor;
+
+    // the beam: luminance toward the eye, I(angle) / (area x cos(angle)), relative to the peak
+    float c = dot(normalize(fs_in.vertex_normal), normalize(-fs_in.view_vector));
+    float beam = c >= lens_cos_cutoff ? pow(max(c, 1e-4), lens_exponent - 1.0) : 0.0;
+
+    vec3 emissive_texel = texture(emissive_tex, fs_in.texcoord).rgb;
+    vec3 emissive = eotf_inverse_sRGB(emissive_texel) * emissive_factor * max(beam, STRAY);
+
+    vec3 N = normalize(fs_in.vertex_normal);
+    N = perturb_normal(N, fs_in.view_vector, fs_in.texcoord, normal_tex);
+
+    gbuffer_pack_pbr_opaque(N, base_color, metallic, roughness, occlusion, emissive);
+    gl_FragDepth = logdepth_encode(fs_in.flogz);
+}

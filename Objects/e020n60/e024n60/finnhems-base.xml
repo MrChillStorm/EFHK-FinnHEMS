@@ -46,8 +46,10 @@
   </effect>
 
   <effect>
-    <inherits-from>Effects/model-pbr</inherits-from>
+    <inherits-from>finnhems-lens</inherits-from>
     <parameters>
+      <lens-exponent type="float"> 2.000 </lens-exponent>
+      <lens-cos-cutoff type="float"> 0.1732 </lens-cos-cutoff>
       <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
@@ -57,8 +59,10 @@
   </effect>
 
   <effect>
-    <inherits-from>Effects/model-pbr</inherits-from>
+    <inherits-from>finnhems-lens</inherits-from>
     <parameters>
+      <lens-exponent type="float"> 5.568 </lens-exponent>
+      <lens-cos-cutoff type="float"> 0.5327 </lens-cos-cutoff>
       <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
@@ -68,8 +72,10 @@
   </effect>
 
   <effect>
-    <inherits-from>Effects/model-pbr</inherits-from>
+    <inherits-from>finnhems-lens</inherits-from>
     <parameters>
+      <lens-exponent type="float"> 3.475 </lens-exponent>
+      <lens-cos-cutoff type="float"> 0.3645 </lens-cos-cutoff>
       <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
@@ -79,8 +85,10 @@
   </effect>
 
   <effect>
-    <inherits-from>Effects/model-pbr</inherits-from>
+    <inherits-from>finnhems-lens</inherits-from>
     <parameters>
+      <lens-exponent type="float"> 4.819 </lens-exponent>
+      <lens-cos-cutoff type="float"> 0.4830 </lens-cos-cutoff>
       <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
@@ -90,8 +98,10 @@
   </effect>
 
   <effect>
-    <inherits-from>Effects/model-pbr</inherits-from>
+    <inherits-from>finnhems-lens</inherits-from>
     <parameters>
+      <lens-exponent type="float"> 1.000 </lens-exponent>
+      <lens-cos-cutoff type="float"> 0.0000 </lens-cos-cutoff>
       <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>

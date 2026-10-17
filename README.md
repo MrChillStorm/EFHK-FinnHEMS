@@ -22,8 +22,10 @@ what compositor lights can do.
   - five uplights on the lettering,
   - nine ceiling panels in the offices.
 
-  Each fixture's lens glows too. The lights come on as the sun sets (from
-  4° above the horizon to 2° below) and are off by day.
+  Each fixture's lens glows too, along its beam only, as a street light
+  does: bright from inside the beam, faint from the side or above. The
+  lights come on as the sun sets (from 4° above the horizon to 2° below)
+  and are off by day.
 
 ## Requirements
 

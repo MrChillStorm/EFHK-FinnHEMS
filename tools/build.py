@@ -293,6 +293,16 @@ HDR_CD = 635.0
 UNITS = [(math.radians(90 - el), HDR_CD ** -min(1.0, max(0.0, (el + 6) / 12))) for el in range(6, -7, -1)]
 LENS_NITS = {'highbay': (1500, NEUTRAL), 'flood': (2500, COOL), 'downlight': (800, WARM),   # cd/m2: far below a
              'washer': (300, NEUTRAL), 'office': (200, WARM)}                                # real LED's, or they bloom
+# each lens's beam, as its light's (half-intensity angle, deg; None: a diffuser, as bright from every side): the lens
+# glows along it only (Objects/.../finnhems-lens.eff)
+LENS_BEAM = {'highbay': 45, 'flood': 28, 'downlight': 35, 'washer': 30, 'office': None}
+
+
+def spot_shape(half):
+    """FlightGear's spot for a half-intensity angle `half` (deg): the exponent of cos and the cutoff (deg), where it
+    has fallen to 3 % (its cone has a hard edge)."""
+    e = math.log(0.5) / math.log(math.cos(math.radians(half)))
+    return e, math.degrees(math.acos(0.03 ** (1 / e)))
 
 
 def fixtures(parts, lens):
@@ -302,8 +312,7 @@ def fixtures(parts, lens):
     def spot(name, at, aim, rgb, cd, half, rng):
         """A spot of peak intensity cd, half of it at `half` deg off its axis. FlightGear's cone has a hard edge, so
         its exponent (cos^e) and cutoff fade it to 3 % there."""
-        e = math.log(0.5) / math.log(math.cos(math.radians(half)))
-        cut = math.degrees(math.acos(0.03 ** (1 / e)))
+        e, cut = spot_shape(half)
         out.append((name, P(*at), P(*aim), rgb, cd, round(cut, 1), round(e, 2), rng))
     lu, lo = part('lens'), part('frame')
     dark = lens['off']
@@ -352,8 +361,11 @@ def write_xml(lights):
     effect('Effects/model-default', ['letters'], ['<alpha-cutoff type="float"> 0.5 </alpha-cutoff>',
                                                   '<pbr-roughness type="float"> 0.5 </pbr-roughness>'])
     for k, (nits, rgb) in LENS_NITS.items():
-        effect('Effects/model-pbr', ['lens-' + k],
-               ['<emissive-factor type="vec3d"> 0 0 0 </emissive-factor>',
+        e, cut = spot_shape(LENS_BEAM[k]) if LENS_BEAM[k] else (1.0, 90.0)
+        effect('finnhems-lens', ['lens-' + k],
+               ['<lens-exponent type="float"> %.3f </lens-exponent>' % e,
+                '<lens-cos-cutoff type="float"> %.4f </lens-cos-cutoff>' % math.cos(math.radians(cut)),
+                '<emissive-factor type="vec3d"> 0 0 0 </emissive-factor>',
                 '<base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>', '<metallic-factor type="float"> 0 </metallic-factor>',
                 '<roughness-factor type="float"> 0.3 </roughness-factor>'])
     # the lenses' glow, cd/m2 faded in with the sun, dimmed, and converted (UNITS)

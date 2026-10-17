@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The base's lenses (tools/build.py), in the HDR pipeline: Effects/model-pbr whose glow goes where its light does.
+     A lens faces along its beam, so its luminance toward the eye is its light's intensity that way over its
+     projected area: the peak (the emissive factor) times cos^(e-1) of the angle off its normal within the cutoff,
+     beyond it the 3 % FlightGear's spot falls to at the cutoff (finnhems-lens.frag). -->
+
+<PropertyList>
+
+  <name>finnhems-lens</name>
+  <inherits-from>Effects/model-pbr</inherits-from>
+
+  <parameters>
+    <lens-exponent type="float">1.0</lens-exponent>
+    <lens-cos-cutoff type="float">0.0</lens-cos-cutoff>
+  </parameters>
+
+  <technique n="109">
+    <pass>
+      <program>
+        <fragment-shader n="0">finnhems-lens.frag</fragment-shader>
+      </program>
+      <uniform n="50">
+        <name>lens_exponent</name>
+        <type>float</type>
+        <value><use>lens-exponent</use></value>
+      </uniform>
+      <uniform n="51">
+        <name>lens_cos_cutoff</name>
+        <type>float</type>
+        <value><use>lens-cos-cutoff</use></value>
+      </uniform>
+    </pass>
+  </technique>
+
+</PropertyList>
