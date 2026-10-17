@@ -48,7 +48,7 @@
   <effect>
     <inherits-from>Effects/model-pbr</inherits-from>
     <parameters>
-      <emissive-factor type="vec3d"> 1500 1395 1260 </emissive-factor>
+      <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
       <roughness-factor type="float"> 0.3 </roughness-factor>
@@ -59,7 +59,7 @@
   <effect>
     <inherits-from>Effects/model-pbr</inherits-from>
     <parameters>
-      <emissive-factor type="vec3d"> 2500 2425 2300 </emissive-factor>
+      <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
       <roughness-factor type="float"> 0.3 </roughness-factor>
@@ -70,7 +70,7 @@
   <effect>
     <inherits-from>Effects/model-pbr</inherits-from>
     <parameters>
-      <emissive-factor type="vec3d"> 800 688 560 </emissive-factor>
+      <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
       <roughness-factor type="float"> 0.3 </roughness-factor>
@@ -81,7 +81,7 @@
   <effect>
     <inherits-from>Effects/model-pbr</inherits-from>
     <parameters>
-      <emissive-factor type="vec3d"> 300 279 252 </emissive-factor>
+      <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
       <roughness-factor type="float"> 0.3 </roughness-factor>
@@ -92,13 +92,528 @@
   <effect>
     <inherits-from>Effects/model-pbr</inherits-from>
     <parameters>
-      <emissive-factor type="vec3d"> 200 172 140 </emissive-factor>
+      <emissive-factor type="vec3d"> 0 0 0 </emissive-factor>
       <base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>
       <metallic-factor type="float"> 0 </metallic-factor>
       <roughness-factor type="float"> 0.3 </roughness-factor>
     </parameters>
     <object-name>lens-office</object-name>
   </effect>
+
+  <animation>
+    <type>pbr</type>
+    <object-name>lens-highbay</object-name>
+    <emissive-factor>
+      <red>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 1500 </value>
+          </product>
+        </expression>
+      </red>
+      <green>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 1395 </value>
+          </product>
+        </expression>
+      </green>
+      <blue>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 1260 </value>
+          </product>
+        </expression>
+      </blue>
+    </emissive-factor>
+  </animation>
+
+  <animation>
+    <type>pbr</type>
+    <object-name>lens-flood</object-name>
+    <emissive-factor>
+      <red>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 2500 </value>
+          </product>
+        </expression>
+      </red>
+      <green>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 2425 </value>
+          </product>
+        </expression>
+      </green>
+      <blue>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 2300 </value>
+          </product>
+        </expression>
+      </blue>
+    </emissive-factor>
+  </animation>
+
+  <animation>
+    <type>pbr</type>
+    <object-name>lens-downlight</object-name>
+    <emissive-factor>
+      <red>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 800 </value>
+          </product>
+        </expression>
+      </red>
+      <green>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 688 </value>
+          </product>
+        </expression>
+      </green>
+      <blue>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 560 </value>
+          </product>
+        </expression>
+      </blue>
+    </emissive-factor>
+  </animation>
+
+  <animation>
+    <type>pbr</type>
+    <object-name>lens-washer</object-name>
+    <emissive-factor>
+      <red>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 300 </value>
+          </product>
+        </expression>
+      </red>
+      <green>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 279 </value>
+          </product>
+        </expression>
+      </green>
+      <blue>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 252 </value>
+          </product>
+        </expression>
+      </blue>
+    </emissive-factor>
+  </animation>
+
+  <animation>
+    <type>pbr</type>
+    <object-name>lens-office</object-name>
+    <emissive-factor>
+      <red>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 200 </value>
+          </product>
+        </expression>
+      </red>
+      <green>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 172 </value>
+          </product>
+        </expression>
+      </green>
+      <blue>
+        <expression>
+          <product>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+              <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+            </table>
+            <table>
+              <property>/sim/time/sun-angle-rad</property>
+              <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+              <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+              <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+              <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+              <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+              <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+              <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+              <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+              <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+              <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+              <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+              <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+              <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
+            </table>
+            <difference>
+              <value> 1 </value>
+              <property>/scenery/finnhems/dim</property>
+            </difference>
+            <value> 140 </value>
+          </product>
+        </expression>
+      </blue>
+    </emissive-factor>
+  </animation>
 
   <animation>
     <type>scale</type>
@@ -140,17 +655,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 1500 </value>
         </product>
       </expression>
-      <scale> 1500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 2 </spot-exponent>
     <spot-cutoff> 80 </spot-cutoff>
@@ -180,17 +710,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 1500 </value>
         </product>
       </expression>
-      <scale> 1500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 2 </spot-exponent>
     <spot-cutoff> 80 </spot-cutoff>
@@ -220,17 +765,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 1500 </value>
         </product>
       </expression>
-      <scale> 1500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 2 </spot-exponent>
     <spot-cutoff> 80 </spot-cutoff>
@@ -260,17 +820,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 1500 </value>
         </product>
       </expression>
-      <scale> 1500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 2 </spot-exponent>
     <spot-cutoff> 80 </spot-cutoff>
@@ -300,17 +875,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 1500 </value>
         </product>
       </expression>
-      <scale> 1500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 2 </spot-exponent>
     <spot-cutoff> 80 </spot-cutoff>
@@ -340,17 +930,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 1500 </value>
         </product>
       </expression>
-      <scale> 1500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 2 </spot-exponent>
     <spot-cutoff> 80 </spot-cutoff>
@@ -380,17 +985,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 2500 </value>
         </product>
       </expression>
-      <scale> 2500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 5.57 </spot-exponent>
     <spot-cutoff> 57.8 </spot-cutoff>
@@ -420,17 +1040,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 2500 </value>
         </product>
       </expression>
-      <scale> 2500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 5.57 </spot-exponent>
     <spot-cutoff> 57.8 </spot-cutoff>
@@ -460,17 +1095,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 2500 </value>
         </product>
       </expression>
-      <scale> 2500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 5.57 </spot-exponent>
     <spot-cutoff> 57.8 </spot-cutoff>
@@ -500,17 +1150,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 2500 </value>
         </product>
       </expression>
-      <scale> 2500 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 5.57 </spot-exponent>
     <spot-cutoff> 57.8 </spot-cutoff>
@@ -540,17 +1205,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 250 </value>
         </product>
       </expression>
-      <scale> 250 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 3.47 </spot-exponent>
     <spot-cutoff> 68.6 </spot-cutoff>
@@ -580,17 +1260,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 250 </value>
         </product>
       </expression>
-      <scale> 250 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 3.47 </spot-exponent>
     <spot-cutoff> 68.6 </spot-cutoff>
@@ -620,17 +1315,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 250 </value>
         </product>
       </expression>
-      <scale> 250 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 3.47 </spot-exponent>
     <spot-cutoff> 68.6 </spot-cutoff>
@@ -660,17 +1370,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 80 </value>
         </product>
       </expression>
-      <scale> 80 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 4.82 </spot-exponent>
     <spot-cutoff> 61.1 </spot-cutoff>
@@ -700,17 +1425,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 80 </value>
         </product>
       </expression>
-      <scale> 80 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 4.82 </spot-exponent>
     <spot-cutoff> 61.1 </spot-cutoff>
@@ -740,17 +1480,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 80 </value>
         </product>
       </expression>
-      <scale> 80 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 4.82 </spot-exponent>
     <spot-cutoff> 61.1 </spot-cutoff>
@@ -780,17 +1535,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 80 </value>
         </product>
       </expression>
-      <scale> 80 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 4.82 </spot-exponent>
     <spot-cutoff> 61.1 </spot-cutoff>
@@ -820,17 +1590,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 80 </value>
         </product>
       </expression>
-      <scale> 80 </scale>
-      <min> 0 </min>
     </intensity>
     <spot-exponent> 4.82 </spot-exponent>
     <spot-cutoff> 61.1 </spot-cutoff>
@@ -855,17 +1640,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -888,17 +1688,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -921,17 +1736,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -954,17 +1784,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -987,17 +1832,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -1020,17 +1880,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -1053,17 +1928,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -1086,17 +1976,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>
@@ -1119,17 +2024,32 @@
         <product>
           <table>
             <property>/sim/time/sun-angle-rad</property>
-            <entry><ind> 1.500 </ind><dep> 0 </dep></entry>
-            <entry><ind> 1.600 </ind><dep> 1 </dep></entry>
+            <entry><ind> 1.5000 </ind><dep> 0 </dep></entry>
+            <entry><ind> 1.6000 </ind><dep> 1 </dep></entry>
+          </table>
+          <table>
+            <property>/sim/time/sun-angle-rad</property>
+            <entry><ind> 1.4661 </ind><dep> 0.0015748 </dep></entry>
+            <entry><ind> 1.4835 </ind><dep> 0.00269644 </dep></entry>
+            <entry><ind> 1.5010 </ind><dep> 0.00461695 </dep></entry>
+            <entry><ind> 1.5184 </ind><dep> 0.00790532 </dep></entry>
+            <entry><ind> 1.5359 </ind><dep> 0.0135358 </dep></entry>
+            <entry><ind> 1.5533 </ind><dep> 0.0231765 </dep></entry>
+            <entry><ind> 1.5708 </ind><dep> 0.0396838 </dep></entry>
+            <entry><ind> 1.5882 </ind><dep> 0.0679481 </dep></entry>
+            <entry><ind> 1.6057 </ind><dep> 0.116343 </dep></entry>
+            <entry><ind> 1.6232 </ind><dep> 0.199208 </dep></entry>
+            <entry><ind> 1.6406 </ind><dep> 0.341092 </dep></entry>
+            <entry><ind> 1.6581 </ind><dep> 0.58403 </dep></entry>
+            <entry><ind> 1.6755 </ind><dep> 1 </dep></entry>
           </table>
           <difference>
             <value> 1 </value>
             <property>/scenery/finnhems/dim</property>
           </difference>
+          <value> 60 </value>
         </product>
       </expression>
-      <scale> 60 </scale>
-      <min> 0 </min>
     </intensity>
     <range-m> 6 </range-m>
   </light>

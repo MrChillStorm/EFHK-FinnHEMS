@@ -284,6 +284,13 @@ def osm_apron():
 
 WARM, NEUTRAL, COOL = (1.0, 0.86, 0.70), (1.0, 0.93, 0.84), (1.0, 0.97, 0.92)   # 3000, 4000, 5000 K
 SUN_OFF, SUN_ON = 1.50, 1.60            # sun-angle-rad (from the zenith): off with the sun 4 deg up, full 2 deg down
+# The HDR pipeline has no photometric units, and its range from night to day is compressed: a unit of its radiance is
+# about 635 cd/m2 by day (from its sun: a flat spectrum of 1 W/(m2 sr nm), 73,000 cd/m2, comes out of fgdata's
+# Shaders/HDR/atmos_spectral.glsl at a luminance of 115) and about 1 cd/m2 at night (from its night ambient). The
+# lights keep their cd and the lenses their cd/m2, converted by UNITS: units per cd as the sun goes from 6 deg up to
+# 6 deg down, geometric between.
+HDR_CD = 635.0
+UNITS = [(math.radians(90 - el), HDR_CD ** -min(1.0, max(0.0, (el + 6) / 12))) for el in range(6, -7, -1)]
 LENS_NITS = {'highbay': (1500, NEUTRAL), 'flood': (2500, COOL), 'downlight': (800, WARM),   # cd/m2: far below a
              'washer': (300, NEUTRAL), 'office': (200, WARM)}                                # real LED's, or they bloom
 
@@ -346,9 +353,15 @@ def write_xml(lights):
                                                   '<pbr-roughness type="float"> 0.5 </pbr-roughness>'])
     for k, (nits, rgb) in LENS_NITS.items():
         effect('Effects/model-pbr', ['lens-' + k],
-               ['<emissive-factor type="vec3d"> %.0f %.0f %.0f </emissive-factor>' % tuple(nits * c for c in rgb),
+               ['<emissive-factor type="vec3d"> 0 0 0 </emissive-factor>',
                 '<base-color-factor type="vec4d"> 1 1 1 1 </base-color-factor>', '<metallic-factor type="float"> 0 </metallic-factor>',
                 '<roughness-factor type="float"> 0.3 </roughness-factor>'])
+    # the lenses' glow, cd/m2 faded in with the sun, dimmed, and converted (UNITS)
+    for k, (nits, rgb) in LENS_NITS.items():
+        x.extend(['  <animation>', '    <type>pbr</type>', '    <object-name>lens-%s</object-name>' % k, '    <emissive-factor>'])
+        for c, v in zip(('red', 'green', 'blue'), rgb):
+            x.extend(['      <%s>' % c] + level_xml(nits * v, '        ') + ['      </%s>' % c])
+        x.extend(['    </emissive-factor>', '  </animation>', ''])
     top = P(0, 0, DOOR[2])
     x.extend(['  <animation>', '    <type>scale</type>', '    <object-name>door</object-name>',
               '    <property>/scenery/finnhems/door-closed</property>',
@@ -365,13 +378,7 @@ def write_xml(lights):
                       '      <lookat-y-m> %.3f </lookat-y-m>' % aim[1], '      <lookat-z-m> %.3f </lookat-z-m>' % aim[2],
                       '    </direction>'])
         x.extend(['    <color>', '      <r> %.2f </r>' % rgb[0], '      <g> %.2f </g>' % rgb[1], '      <b> %.2f </b>' % rgb[2],
-                  '    </color>', '    <intensity>', '      <expression>', '        <product>', '          <table>',
-                  '            <property>/sim/time/sun-angle-rad</property>',
-                  '            <entry><ind> %.3f </ind><dep> 0 </dep></entry>' % SUN_OFF,
-                  '            <entry><ind> %.3f </ind><dep> 1 </dep></entry>' % SUN_ON, '          </table>',
-                  '          <difference>', '            <value> 1 </value>', '            <property>/scenery/finnhems/dim</property>',
-                  '          </difference>', '        </product>', '      </expression>', '      <scale> %g </scale>' % cd,
-                  '      <min> 0 </min>', '    </intensity>'])
+                  '    </color>', '    <intensity>'] + level_xml(cd, '      ') + ['    </intensity>'])
         if aim:
             x.extend(['    <spot-exponent> %g </spot-exponent>' % e, '    <spot-cutoff> %g </spot-cutoff>' % cut])
         x.extend(['    <range-m> %g </range-m>' % rng, '  </light>', ''])
@@ -385,6 +392,17 @@ def write_xml(lights):
               '        <less-than><property>/scenery/finnhems/dim</property><value> 0.99 </value></less-than>', '      </and>',
               '    </condition>', '  </animation>', '', '</PropertyList>', ''])
     open(os.path.join(OUT, NAME + '.xml'), 'w').write('\n'.join(x))
+
+
+def level_xml(cd, ind):
+    """A light's intensity (cd) or a lens's luminance (cd/m2), in the pipeline's units: faded in as the sun sets,
+    dimmed with /scenery/finnhems/dim and converted (UNITS)."""
+    def table(rows):
+        return ([ind + '    <table>', ind + '      <property>/sim/time/sun-angle-rad</property>'] +
+                [ind + '      <entry><ind> %.4f </ind><dep> %.6g </dep></entry>' % r for r in rows] + [ind + '    </table>'])
+    return ([ind + '<expression>', ind + '  <product>'] + table([(SUN_OFF, 0), (SUN_ON, 1)]) + table(UNITS) +
+            [ind + '    <difference>', ind + '      <value> 1 </value>', ind + '      <property>/scenery/finnhems/dim</property>',
+             ind + '    </difference>', ind + '    <value> %g </value>' % cd, ind + '  </product>', ind + '</expression>'])
 
 
 def write_stg():
